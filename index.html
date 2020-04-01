@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Wydarzenia regularne</title>
+        <meta name="author" content="Aleksandra Matysik">
+        <style>
+            body {
+                font-family: Verdana, sans-serif;
+            }
+            input[type=text] {
+                width: 500px;
+                padding: 10px;
+                margin: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            input[type=submit] {
+                background-color: #dd2626;
+                color: white;
+                padding: 10px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: 700;
+            }
+        </style>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("ImieNazwisko");
+                var wzor = /[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]/;
+                if(x.value.match(wzor)) {
+                    x.style.border = "green solid 3px";  
+                    x.style.backgroundColor = "#c7f4c7"; 
+                    x.style.fontWeight = "400"; 
+                    x.style.color = "black";          
+                }
+                else {
+                    x.style.border = "red solid 3px"; 
+                    x.style.backgroundColor = "#fac0c0";
+                    x.style.fontWeight = "700";
+                    x.style.color = "#9a0a0a";
+                    x.value = "BŁĘDNA WAROŚTOŚĆ!";  
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <label><b>Imie i Nazwisko</b></label><input id="ImieNazwisko" type="text" size=30></input>
+        <input type="submit" value="Wyślij" onclick="myFunction()"/>
+
+    </body>
+</html>
