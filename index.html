@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Wyrażenia regularne</title>
+        <meta name="author" content="Aleksandra Matysik">
+        <style>
+            body {
+                font-family: Verdana, sans-serif;
+                margin: 20px;
+                background-color: antiquewhite;
+            }
+            label{
+                padding: 10px;
+            }
+            .zadania{
+                float: left;
+                width: 50%;
+                height: 50%;
+            }
+            input[type=text] {
+                width: 400px;
+                padding: 10px;
+                margin: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            input[type=submit] {
+                background-color: #dd2626;
+                color: white;
+                padding: 10px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: 700;
+            }
+        </style>
+        <script>
+            function True(x){
+                x.style.border = "green solid 3px";  
+                x.style.backgroundColor = "#c7f4c7"; 
+                x.style.fontWeight = "400"; 
+                x.style.color = "black";                   
+            }
+            function False(x) {
+                x.style.border = "red solid 3px"; 
+                x.style.backgroundColor = "#fac0c0";
+                x.style.fontWeight = "700";
+                x.style.color = "#9a0a0a";
+            }
+            
+            function sprZnacznik() {
+                var x = document.getElementById("Znacznik");
+                var wzor = /^<.+?>$/;
+                if(x.value.match(wzor)) {
+                    True(x);
+                }
+                else {
+                    False(x);
+                }
+            }
+            function sprLink() {
+                var y = document.getElementById("Link");
+                var wzor = /^<a href=".+">.+<\/a>$/;
+                if(y.value.match(wzor)) {
+                    True(y);
+                }
+                else {
+                    False(y);
+                }
+            }
+            function sprCalkowita() {
+                var z = document.getElementById("Calkowita");
+                var wzor = /^(\+|-)[0-9]+$/;
+                if(z.value.match(wzor)) {
+                    True(z);
+                }
+                else {
+                    False(z);
+                }
+            }
+            function sprRzeczy() {
+                var w = document.getElementById("Rzeczy");
+                var wzor = /^(\+|-)[0-9]+(\.?[0-9])*$/;
+                if(w.value.match(wzor)) {
+                    True(w);
+                }
+                else {
+                    False(w);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="zadania">
+            <label><b>Znacznik HTML</b></br></label><input id="Znacznik" type="text"></input>
+            <input type="submit" value="Wyślij" onclick="sprZnacznik()"/> 
+        </div>
+        <div class="zadania">
+            <label><b>Link w znaczniku &#60a></b></br></label><input id="Link" type="text"></input>
+            <input type="submit" value="Wyślij" onclick="sprLink()"/> 
+        </div>
+        <div class="zadania">
+            <label><b>Liczba całkowita ze znakiem</b></br></label><input id="Calkowita" type="text"></input>
+            <input type="submit" value="Wyślij" onclick="sprCalkowita()"/> 
+        </div>
+        <div class="zadania">
+            <label><b>Liczba rzeczywista ze znakiem</b></br></label><input id="Rzeczy" type="text"></input>
+            <input type="submit" value="Wyślij" onclick="sprRzeczy()"/> 
+        </div>
+    </body>
+ 
+
+</html>
